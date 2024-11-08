@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($stmt->execute()) {
         // Redirect ke halaman daftar author setelah berhasil dengan pesan alert
-        header("Location: ../auth/author.php?success=true");
+        header("Location:author.php?success=true");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;

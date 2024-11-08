@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row['NAMA_AUTHOR'] . "</td>";
         echo '<td>
                 <a href="edit_author.php?id=' . $row['ID_AUTHOR'] . '" class="btn-edit">Edit</a>
-                <a href="delete_author.php?id=' . $row['ID_AUTHOR'] . '" class="btn-delete">Hapus</a>
+                <a href="#" class="btn-delete" onclick="confirmDelete(' . $row['ID_AUTHOR'] . ')">Hapus</a>
               </td>';
         echo "</tr>";
     }
@@ -26,3 +26,14 @@ if ($result->num_rows > 0) {
 // Menutup db
 $conn->close();
 ?>
+
+<script>
+    function confirmDelete(id) {
+        // Menampilkan konfirmasi sebelum menghapus
+        var confirmDelete = confirm("Apakah Anda yakin ingin menghapus author ini?");
+        if (confirmDelete) {
+            // Jika user mengonfirmasi, redirect ke halaman delete_author.php untuk menghapus author
+            window.location.href = "../auth/delete_author.php?id=" + id;
+        }
+    }
+</script>

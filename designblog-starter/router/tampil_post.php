@@ -36,14 +36,14 @@ if ($result === false) {
             echo "<td>" . $row["KATEGORI"] . "</td>";
             echo "<td>" . $row["JUDUL"] . "</td>";
             echo "<td><img src='../assets/images/" . $row["GAMBAR"] . "' alt='Gambar' width='100'></td>";
-            echo "<td>" . $row["ISI"] . "</td>";
+            echo "<td>" . substr($row["ISI"], 0, 100) . "...</td>"; // Show a preview of the content (first 100 characters)
             echo "<td>" . $row["NAMA_AUTHOR"] . "</td>";
             echo "<td>" . $row["BIDANG"] . "</td>";
             echo "<td>" . $row["TANGGAL"] . "</td>";
             echo "<td>" . $row["DILIHAT"] . "</td>";
             echo "<td>
-                    <a href='edit_post.php?id=" . $row["ID_POST"] . "' class='btn-edit'>Edit</a>
-                    <a href='delete_post.php?id=" . $row["ID_POST"] . "' class='btn-delete'>Hapus</a>
+                    <a href='../auth/edit_post.php?id=" . $row["ID_POST"] . "' class='btn-edit'>Edit</a>
+                    <a href='../auth/delete_post.php?id=" . $row["ID_POST"] . "' class='btn-delete' onclick='return confirm(\"Apakah Anda yakin ingin menghapus post ini?\")'>Hapus</a>
                   </td>";
             echo "</tr>";
         }
