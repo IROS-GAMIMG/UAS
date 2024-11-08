@@ -11,7 +11,7 @@
 <body>
 
     <nav class="navbar">
-        <h2>admin</h2>
+        <h2>Admin</h2>
         <ul>
             <li><a href="author.php">Daftar Author</a></li>
             <li><a href="post.php">Daftar Postingan</a></li>
@@ -24,7 +24,7 @@
             <h1>DAFTAR AUTHOR</h1>
 
             <!-- Form to add a new author -->
-            <form action="../auth/tambah_author.html" method="POST" class="form-author">
+            <form action="../auth/tambah_author.php" method="POST" class="form-author">
                 <label for="nama_author">Nama Author:</label>
                 <input type="text" id="nama_author" name="nama_author" required>
                 <button type="submit" class="btn-tambah">Tambahkan Author</button>
