@@ -20,7 +20,7 @@ if ($_FILES['gambar']['name']) {
         $stmt->bind_param("ssssiss", $kategori, $judul, $gambarName, $isi, $id_author, $bidang, $tanggal);
 
         if ($stmt->execute()) {
-            header("Location: post.php?success=true");
+            header("Location: ../admin/post.php?success=true");
         } else {
             echo "Gagal menyimpan data: " . $conn->error;
         }
