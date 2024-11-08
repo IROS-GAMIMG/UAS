@@ -148,7 +148,7 @@ Author URL: http://w3layouts.com
                             </div>
                         </li>
                         <li class="nav-item @@contact__active">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                         <li class="nav-item @@about__active">
                             <a class="nav-link" href="admin/post.php">admin</a>
@@ -260,17 +260,11 @@ Author URL: http://w3layouts.com
 <?php endwhile; ?>
 
                                 </div>
-
-<!-- ARRAYYYYYYYYYYYYYY================================================= -->
-
-
                             </div>
                             
                         </div>
                         <?php while ($row = mysqli_fetch_assoc($result2)): ?>
-                        <!-- =======================ARRRAY ANAKAN================================== -->
 
-                        
                         <div class="col-lg-6 col-md-6 item mt-5 pt-lg-3">
                             <div class="card">
                                 <div class="card-header p-0 position-relative">

@@ -143,12 +143,12 @@ Author URL: http://w3layouts.com
 							Categories <span class="fa fa-angle-down"></span>
 						</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item @@cp__active" href="technology.php">technology</a>
-                                <a class="dropdown-item active" href="lifestyle.php">lifestyle</a>
+                                <a class="dropdown-item active" href="technology.php">technology</a>
+                                <a class="dropdown-item @@cp__active" href="lifestyle.php">lifestyle</a>
                             </div>
                         </li>
                         <li class="nav-item @@contact__active">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
                         <li class="nav-item @@about__active">
                             <a class="nav-link" href="admin/post.php">admin</a>

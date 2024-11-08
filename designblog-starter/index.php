@@ -1,6 +1,37 @@
 <?php
+session_start();
 // Menghubungkan ke database
 include './router/db.php';
+
+// Periksa apakah ada artikel yang dilihat
+if (isset($_GET['id'])) {
+    $article_id = $_GET['id'];
+
+    // Jika artikel belum dilihat di session, maka update jumlah tampilan
+    if (!isset($_SESSION['viewed_articles']) || !in_array($article_id, $_SESSION['viewed_articles'])) {
+        // Update jumlah tampilan di database
+        $updateViewsSql = "UPDATE postingan SET DILIHAT = DILIHAT + 1 WHERE ID_POST = ?";
+        $stmt = $conn->prepare($updateViewsSql);
+        $stmt->bind_param("i", $article_id);
+        $stmt->execute();
+
+        // Tambahkan artikel yang telah dilihat ke dalam daftar session
+        $_SESSION['viewed_articles'][] = $article_id;
+    }
+}
+
+// Ambil detail artikel yang akan ditampilkan
+if (isset($_GET['id'])) {
+    $sqlPost = "SELECT p.ID_POST, p.KATEGORI, p.JUDUL, p.GAMBAR, p.ISI, a.NAMA_AUTHOR, p.BIDANG, p.TANGGAL, p.DILIHAT 
+                FROM postingan p
+                JOIN author a ON p.ID_AUTHOR = a.ID_AUTHOR
+                WHERE p.ID_POST = ?";
+    $stmt = $conn->prepare($sqlPost);
+    $stmt->bind_param("i", $_GET['id']);
+    $stmt->execute();
+    $resultPost = $stmt->get_result();
+    $post = $resultPost->fetch_assoc();
+}
 
 // Set limit dan offset untuk pagination
 $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 5;  // Default 5 post per halaman
@@ -190,7 +221,7 @@ $resultTrending = $conn->query($sqlTrending);
                             <div class="grids5-info img-block-mobile">
                                 <div class="blog-info align-self">
                                     <span class="category"><?php echo htmlspecialchars($row['KATEGORI']); ?></span>
-                                    <a href="#blog-single" class="blog-desc mt-0">
+                                    <a href="?id=<?php echo $row['ID_POST']; ?>" class="blog-desc mt-0">
                                         <?php echo htmlspecialchars($row['JUDUL']); ?>
                                     </a>
                                     <p>

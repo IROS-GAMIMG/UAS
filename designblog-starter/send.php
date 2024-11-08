@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Mengeksekusi query dan memeriksa apakah berhasil
     if ($stmt->execute()) {
-        echo "<script>alert('Pesan berhasil dikirim'); window.location.href = 'contact.html';</script>";
+        echo "<script>alert('Pesan berhasil dikirim'); window.location.href = 'contact.php';</script>";
     } else {
         echo "Error: " . $conn->error;
     }

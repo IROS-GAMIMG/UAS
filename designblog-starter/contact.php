@@ -84,7 +84,7 @@ Author URL: http://w3layouts.com
             </a>
             <div class="align-self ml-3">
               <a href="#author">
-                <h5>Alexander</h5>
+                <h5>MSI</h5>
               </a>
               <span>Blog Writer</span>
             </div>
